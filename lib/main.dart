@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       // darkTheme: ThemeData(
       //   brightness: Brightness.dark
       // ),
-      initialRoute: "/home", // home bydefault hase start ma
+      // initialRoute: "/home", // home bydefault hase start ma
       routes: {
         //ghana page hoy ane mate and koi webiste mathi lava mate pn use thay
         "/": (context) => LoginPage(),
