@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sampleproject/pages/home_page.dart';
 import 'package:sampleproject/pages/login_page.dart';
+import 'package:sampleproject/utils/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,8 +25,8 @@ class MyApp extends StatelessWidget {
       routes: {
         //ghana page hoy ane mate and koi webiste mathi lava mate pn use thay
         "/": (context) => LoginPage(),
-        '/home': (context) => HomePage(),
-        '/login': (context) => LoginPage()
+        MyRoutes.homepage: (context) => HomePage(),
+        MyRoutes.loginpage: (context) => LoginPage()
       },
     );
   }
