@@ -8,6 +8,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // backgroundColor: Colors.white,
+        // elevation: 0.0 , //shedow nu elevation dur karva mate
+        // iconTheme: IconThemeData(color: Colors.black),
         title: Text("Catalog App"),
       ),
       body: Center(

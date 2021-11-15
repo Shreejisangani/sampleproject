@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sampleproject/pages/home_page.dart';
 import 'package:sampleproject/pages/login_page.dart';
 import 'package:sampleproject/utils/routes.dart';
+import 'package:sampleproject/widgets/themes.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,12 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // home: Homepage(), //je page apyu hase aa page load thase route na vapro to
-      theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          fontFamily: GoogleFonts.lato().fontFamily),//googlefontimport
-      // darkTheme: ThemeData(
-      //   brightness: Brightness.dark
-      // ),
+      themeMode: ThemeMode.light,
+      theme:MyTheme.lightTheme(context) ,
+      darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
       initialRoute: MyRoutes.homepage, // home bydefault hase start ma
       routes: {
