@@ -55,14 +55,37 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(16.0),
         //load nu error ave nahi ana ,mate
         child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-            ? ListView.builder(
-                itemCount: CatalogModel
-                    .items.length, //items count karse load karva mate
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16),
+                itemCount: CatalogModel.items.length,
                 itemBuilder: (context, index) {
-                  //most required vastu itemBuilder
-                  return ItemWidget(
-                    item: CatalogModel.items[index],
-                  ); //index atle k 0 thi start karva ahiya array jem samjvani
+                  final item = CatalogModel.items[index];
+                  return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: GridTile(
+                        header: Container(
+                          padding: const EdgeInsets.all(12),
+                          child: Text(
+                            item.name,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          decoration: BoxDecoration(color: Colors.deepPurple),
+                        ),
+                        child: Image.network(item.image),
+                        footer: Container(
+                          padding: const EdgeInsets.all(12),
+                          child: Text(
+                            item.price.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          decoration: BoxDecoration(color: Colors.black),
+                        ),
+                      ));
                 },
               )
             : Center(child: CircularProgressIndicator()),
