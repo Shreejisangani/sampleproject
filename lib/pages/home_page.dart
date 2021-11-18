@@ -20,19 +20,29 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadfile() async {
+    //loading icon jova mate
+    // await Future.delayed(Duration(seconds: 2));
     var catalogJson = await rootBundle.loadString(
         "assets/files/catalog.json"); //catalog ma data string ma  avse
     var decodeJson = jsonDecode(
         catalogJson); // anathi data json atle k map ma decode thase and breakpoint thi check kari sako
     var productData = decodeJson["products"]; // product khali iport karva mate
+
+    //PRODUCTDATA LIST MA ave 6 and apde json nu map ma karyu catalog.dart ma mate atyre apde ane list ma convert karvu padse km k apde j pela catalogModel.items use karyu tu aa pn list ma hatu atle
+
+    CatalogModel.items =
+        List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
+
+    //data load karvano 6 farithi kbr padse
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(
-        20,
-        (index) => CatalogModel.items[
-            0]); //Apdi rite generate karva product items[0] atla mate k ayre apdi pas ak j items hati atle
+    // final dummyList = List.generate(
+    //     20,
+    //     (index) => CatalogModel.items[
+    //         0]); //Apdi rite generate karva product items[0] atla mate k ayre apdi pas ak j items hati atle
 
     return Scaffold(
       appBar: AppBar(
@@ -43,15 +53,19 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: dummyList.length, //items count karse load karva mate
-          itemBuilder: (context, index) {
-            //most required vastu itemBuilder
-            return ItemWidget(
-              item: dummyList[index],
-            ); //index atle k 0 thi start karva ahiya array jem samjvani
-          },
-        ),
+        //load nu error ave nahi ana ,mate
+        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            ? ListView.builder(
+                itemCount: CatalogModel
+                    .items.length, //items count karse load karva mate
+                itemBuilder: (context, index) {
+                  //most required vastu itemBuilder
+                  return ItemWidget(
+                    item: CatalogModel.items[index],
+                  ); //index atle k 0 thi start karva ahiya array jem samjvani
+                },
+              )
+            : Center(child: CircularProgressIndicator()),
       ), //builder nu kam items n ak sathe nahi pn jetli screen ma hoy atli and ana karta 2 vadhare item load kare atla mate hoy 6
       drawer: MyDrawer(),
     );
