@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -30,7 +31,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
+        
         child: SingleChildScrollView(
           //scroll karva mate best 6 nana phone mate karvu pade column use karo atle
           child: Form(
@@ -97,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     Material(
                       borderRadius:
                           BorderRadius.circular(changebutton ? 50 : 8),
-                      color: Colors.deepPurple,
+                      color: context.theme.buttonColor,
                       child: InkWell(
                         onTap: () => moveToHome(
                             context), //Single line and Null return kare tyare use thay =>//await mate async use,

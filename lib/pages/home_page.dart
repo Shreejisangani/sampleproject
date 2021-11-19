@@ -1,12 +1,12 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sampleproject/models/catalog.dart';
+import 'package:sampleproject/utils/routes.dart';
 import 'package:sampleproject/widgets/home_widgets/catalog_header.dart';
 import 'package:sampleproject/widgets/home_widgets/catalog_list.dart';
-import 'package:sampleproject/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 
 
 class HomePage extends StatefulWidget {
@@ -49,7 +49,12 @@ class _HomePageState extends State<HomePage> {
     //         0]); //Apdi rite generate karva product items[0] atla mate k ayre apdi pas ak j items hati atle
 
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor:context.canvasColor ,//  Theme.of(context).canvasColor veloxity na use kariye to
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+        backgroundColor: context.theme.buttonColor,
+        child: Icon(CupertinoIcons.cart,color: Colors.white,),
+      ),
       body: SafeArea(
           child: Container(
         padding: Vx.m32,

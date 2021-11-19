@@ -12,31 +12,12 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: MyTheme.creamColor,
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        child: ButtonBar(
-                alignment: MainAxisAlignment.spaceBetween,
-                buttonPadding: EdgeInsets.zero,
-                children: [
-                  "\$${catalog2.price}".text.bold.xl4.red700.make(),
-                  ElevatedButton(
-                          onPressed: () {
-                            
-                          },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  MyTheme.darkBluishColor),
-                              shape: MaterialStateProperty.all(StadiumBorder())),
-                          child: "Buy".text.make()).wh(100, 50)
-                      
-                ],
-              ).p16(),
+      backgroundColor: context.canvasColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
         bottom: false,
-        
         child: Column(
         
           children: [
@@ -50,21 +31,44 @@ class HomeDetailPage extends StatelessWidget {
                     arcType: VxArcType.CONVEY,
                     edge: VxEdge.TOP,
                     child: Container(
-                      color: Colors.white,
+                      color: context.cardColor,
                       width: context.screenWidth,
-                      child: Column(
-                        children: [
-                          catalog2.name.text.xl4
-                              .color(MyTheme.darkBluishColor)
-                              .bold
-                              .make(),
-                          catalog2.desc.text.xl.make(),
-                          10.heightBox,
-                        ],
-                      ).py64(),
+                      child: ListView(
+                        children:[ Column(
+                          children: [
+                            catalog2.name.text.xl4
+                                .color(context.accentColor)
+                                .bold
+                                .make(),
+                            catalog2.desc.text.color(context.theme.secondaryHeaderColor).xl.make(),
+                            10.heightBox,
+                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sint quod molestias? Atque facere error adipisci ex nam cum dignissimos nemo saepe, nihil sequi eligendi itaque assumenda? Sapiente, reiciendis. Saepe.".text.xl.color(context.theme.secondaryHeaderColor).make().p32(),
+                          ],
+                        ).py64(),
+                        ]),
                     )))
           ],
         ),
+      ),
+      bottomNavigationBar: Container(
+        color: context.cardColor,
+        child: ButtonBar(
+                alignment: MainAxisAlignment.spaceBetween,
+                buttonPadding: EdgeInsets.zero,
+                children: [
+                  "\$${catalog2.price}".text.bold.xl4.red700.make(),
+                  ElevatedButton(
+                          onPressed: () {
+                            
+                          },
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  context.theme.buttonColor),
+                              shape: MaterialStateProperty.all(StadiumBorder())),
+                          child: "Add To Cart".text.make()).wh(130, 50)
+                      
+                ],
+              ).p16(),
       ),
     );
   }
