@@ -17,8 +17,8 @@ class MyTheme {
           iconTheme: IconThemeData(color: Colors.black),
           textTheme: Theme.of(context).textTheme));
 
-  static ThemeData darkTheme(BuildContext context) =>
-      ThemeData(fontFamily: GoogleFonts.poppins().fontFamily,
+  static ThemeData darkTheme(BuildContext context) => ThemeData(
+      fontFamily: GoogleFonts.poppins().fontFamily,
       brightness: Brightness.dark,
       cardColor: Colors.black,
       canvasColor: darkCreamColor,
@@ -29,7 +29,9 @@ class MyTheme {
           color: Colors.black,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.white),
-          textTheme: Theme.of(context).textTheme));
+          textTheme: Theme.of(context).textTheme.copyWith(
+              headline6:
+                  context.textTheme.headline6!.copyWith(color: Colors.white))));
 
   //colors
   static Color creamColor = Color(0xfff5f5f5);

@@ -8,6 +8,13 @@ class CatalogModel {
     //     color: "#33505a",
     //     image: "https://m.media-amazon.com/images/I/71MHTD3uL4L.jpg")
   ];
+
+  //get item by ID
+  static Item getByID(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  //get item by position
+  static Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
@@ -39,11 +46,11 @@ class Item {
 
 //encodeing method
   toMap() => {
-    "id" : id,
-    "name" : name,
-    "desc" :desc,
-    "price" : price,
-    "color" : color,
-    "image" : image,
-  };
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "image": image,
+      };
 }

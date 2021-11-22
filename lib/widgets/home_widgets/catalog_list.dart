@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sampleproject/models/catalog.dart';
 import 'package:sampleproject/pages/home_details_page.dart';
-import 'package:sampleproject/utils/routes.dart';
 import 'package:sampleproject/widgets/home_widgets/catalog_image.dart';
-import 'package:sampleproject/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CatalogList extends StatelessWidget {
@@ -13,7 +11,9 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
+        //niche ni banne line same j work karse
+        final catalog = CatalogModel.getByPosition(index);
+        // final catalog = CatalogModel.items[index];
         return InkWell(
             onTap: () => Navigator.push(
                 context,
@@ -37,8 +37,9 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
       children: [
-        Hero(tag: catalog1.id.toString(),
-        child: CatalogImage(image: catalog1.image)),
+        Hero(
+            tag: catalog1.id.toString(),
+            child: CatalogImage(image: catalog1.image)),
         Expanded(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,9 +54,7 @@ class CatalogItem extends StatelessWidget {
               children: [
                 "\$${catalog1.price}".text.bold.xl.make(),
                 ElevatedButton(
-                        onPressed: () {
-                          
-                        },
+                        onPressed: () {},
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                                 context.theme.buttonColor),

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme:MyTheme.lightTheme(context) ,
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.loginpage, // home bydefault hase start ma
+      initialRoute: MyRoutes.homepage, // home bydefault hase start ma
       routes: {
         //ghana page hoy ane mate and koi webiste mathi lava mate pn use thay
         "/": (context) => LoginPage(),
