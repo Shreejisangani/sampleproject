@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sampleproject/models/catalog.dart';
-import 'package:sampleproject/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeDetailPage extends StatelessWidget {
   final Item catalog2;
 
-  const HomeDetailPage({Key? key, required this.catalog2})
-      : assert(catalog2 != null),
-        super(key: key);
+  const HomeDetailPage({Key? key, required this.catalog2}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +16,6 @@ class HomeDetailPage extends StatelessWidget {
       body: SafeArea(
         bottom: false,
         child: Column(
-        
           children: [
             Hero(
                     tag: (catalog2.id.toString()),
@@ -33,19 +29,27 @@ class HomeDetailPage extends StatelessWidget {
                     child: Container(
                       color: context.cardColor,
                       width: context.screenWidth,
-                      child: ListView(
-                        children:[ Column(
+                      child: ListView(children: [
+                        Column(
                           children: [
                             catalog2.name.text.xl4
                                 .color(context.accentColor)
                                 .bold
                                 .make(),
-                            catalog2.desc.text.color(context.theme.secondaryHeaderColor).xl.make(),
+                            catalog2.desc.text
+                                .color(context.theme.secondaryHeaderColor)
+                                .xl
+                                .make(),
                             10.heightBox,
-                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sint quod molestias? Atque facere error adipisci ex nam cum dignissimos nemo saepe, nihil sequi eligendi itaque assumenda? Sapiente, reiciendis. Saepe.".text.xl.color(context.theme.secondaryHeaderColor).make().p32(),
+                            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sint quod molestias? Atque facere error adipisci ex nam cum dignissimos nemo saepe, nihil sequi eligendi itaque assumenda? Sapiente, reiciendis. Saepe."
+                                .text
+                                .xl
+                                .color(context.theme.secondaryHeaderColor)
+                                .make()
+                                .p32(),
                           ],
                         ).py64(),
-                        ]),
+                      ]),
                     )))
           ],
         ),
@@ -53,22 +57,20 @@ class HomeDetailPage extends StatelessWidget {
       bottomNavigationBar: Container(
         color: context.cardColor,
         child: ButtonBar(
-                alignment: MainAxisAlignment.spaceBetween,
-                buttonPadding: EdgeInsets.zero,
-                children: [
-                  "\$${catalog2.price}".text.bold.xl4.red700.make(),
-                  ElevatedButton(
-                          onPressed: () {
-                            
-                          },
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
-                                  context.theme.buttonColor),
-                              shape: MaterialStateProperty.all(StadiumBorder())),
-                          child: "Add To Cart".text.make()).wh(130, 50)
-                      
-                ],
-              ).p16(),
+          alignment: MainAxisAlignment.spaceBetween,
+          buttonPadding: EdgeInsets.zero,
+          children: [
+            "\$${catalog2.price}".text.bold.xl4.red700.make(),
+            ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            context.theme.buttonColor),
+                        shape: MaterialStateProperty.all(StadiumBorder())),
+                    child: "Add To Cart".text.make())
+                .wh(130, 50)
+          ],
+        ).p16(),
       ),
     );
   }

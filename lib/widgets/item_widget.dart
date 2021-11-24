@@ -4,7 +4,7 @@ import 'package:sampleproject/models/catalog.dart';
 class ItemWidget extends StatelessWidget {
   final Item item; //catalog.dart no 6 class Item and ano variable item
   const ItemWidget({Key? key, required this.item})
-      :assert(item!= null), super(
+      : super(
             key:
                 key); // assert item null nathi n aa check karva and required atle ana vagar nahi chale
 

@@ -1,6 +1,12 @@
 import 'package:sampleproject/models/catalog.dart';
 
 class CartModel {
+  static final cartModel = CartModel._internal();
+
+  CartModel._internal();
+
+  factory CartModel() => cartModel;
+
   //Catalog field
   late CatalogModel _catalog;
 
@@ -8,10 +14,11 @@ class CartModel {
   final List<int> _itemIds = [];
 
   // Get Catalog
+  // ignore: unnecessary_getters_setters
   CatalogModel get catalog => _catalog;
 
+  // ignore: unnecessary_getters_setters
   set catalog(CatalogModel newCatalog) {
-    assert(newCatalog != null);
     _catalog = newCatalog;
   }
 
@@ -29,6 +36,6 @@ class CartModel {
 
   //remove Item
   void remove(Item item) {
-    _itemIds.remove(item.id); 
+    _itemIds.remove(item.id);
   }
 }
