@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -9,15 +10,16 @@ class MyDrawer extends StatelessWidget {
     return Drawer(
       child: Container(
         color:
-            Colors.deepPurple, //akhi app na drawer ma color change karava mate
+            context.theme.canvasColor, //akhi app na drawer ma color change karava mate
         child: ListView(
           children: [
             DrawerHeader(
+                
                 padding: EdgeInsets.zero,
                 child: UserAccountsDrawerHeader(
-                  // decoration: BoxDecoration(color: Colors.black), // only Header vala bhag no color badalva
-                  accountName: Text("Shreeji Sangani"),
-                  accountEmail: Text("shreejisangani@gmail.com"),
+                  decoration: BoxDecoration(color: context.canvasColor), // only Header vala bhag no color badalva
+                  accountName: Text("Shreeji Sangani",style: TextStyle(color: context.accentColor),),
+                  accountEmail: Text("shreejisangani@gmail.com",style: TextStyle(color: context.accentColor)),
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: NetworkImage("https://bit.ly/31SOKix"),
                   ),
@@ -25,44 +27,44 @@ class MyDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(
                 CupertinoIcons.home,
-                color: Colors.white,
+                color: context.accentColor,
               ),
               title: Text(
                 "Home",
-                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                style: TextStyle(color: context.accentColor,fontWeight: FontWeight.bold),
                 textScaleFactor: 1.4,
               ),
             ),
             ListTile(
               leading: Icon(
                 CupertinoIcons.profile_circled,
-                color: Colors.white,
+                color: context.accentColor,
               ),
               title: Text(
                 "Profile",
-                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                style: TextStyle(color: context.accentColor,fontWeight: FontWeight.bold),
                 textScaleFactor: 1.4,
               ),
             ),
             ListTile(
               leading: Icon(
                 CupertinoIcons.mail,
-                color: Colors.white,
+                color: context.accentColor,
               ),
               title: Text(
                 "Email me",
-                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                style: TextStyle(color: context.accentColor,fontWeight: FontWeight.bold),
                 textScaleFactor: 1.4,
               ),
             ),
             ListTile(
               leading: Icon(
                 CupertinoIcons.question,
-                color: Colors.white,
+                color: context.accentColor,
               ),
               title: Text(
                 "Help",
-                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                style: TextStyle(color: context.accentColor,fontWeight: FontWeight.bold),
                 textScaleFactor: 1.4,
               ),
             )

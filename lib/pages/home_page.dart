@@ -6,6 +6,7 @@ import 'package:sampleproject/core/store.dart';
 import 'package:sampleproject/models/cart.dart';
 import 'package:sampleproject/models/catalog.dart';
 import 'package:sampleproject/utils/routes.dart';
+import 'package:sampleproject/widgets/drawer.dart';
 import 'package:sampleproject/widgets/home_widgets/catalog_header.dart';
 import 'package:sampleproject/widgets/home_widgets/catalog_list.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -50,6 +51,8 @@ class _HomePageState extends State<HomePage> {
     //         0]); //Apdi rite generate karva product items[0] atla mate k ayre apdi pas ak j items hati atle
 
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.transparent),
+      drawer: MyDrawer(),
       backgroundColor: context
           .canvasColor, //  Theme.of(context).canvasColor veloxity na use kariye to
       floatingActionButton: VxBuilder(
@@ -75,7 +78,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CatalogHeader(),
+            CatalogHeader().p0(),
             if (CatalogModel.items.isNotEmpty)
               CatalogList().py16().expand()
             else
