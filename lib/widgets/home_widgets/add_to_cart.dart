@@ -26,6 +26,7 @@ class AddToCart extends StatelessWidget {
         },
         style: ButtonStyle(
             backgroundColor:
+                // ignore: deprecated_member_use
                 MaterialStateProperty.all(context.theme.buttonColor),
             shape: MaterialStateProperty.all(StadiumBorder())),
         child:

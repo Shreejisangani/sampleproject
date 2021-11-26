@@ -99,6 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     Material(
                       borderRadius:
                           BorderRadius.circular(changebutton ? 50 : 8),
+                      // ignore: deprecated_member_use
                       color: context.theme.buttonColor,
                       child: InkWell(
                         onTap: () => moveToHome(

@@ -8,13 +8,16 @@ class MyTheme {
       fontFamily: GoogleFonts.poppins().fontFamily,
       cardColor: Colors.white,
       canvasColor: creamColor,
+      // ignore: deprecated_member_use
       buttonColor: darkBluishColor,
+      // ignore: deprecated_member_use
       accentColor: darkBluishColor,
       secondaryHeaderColor: Colors.black54,
       appBarTheme: AppBarTheme(
           color: Colors.white,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.black),
+          // ignore: deprecated_member_use
           textTheme: Theme.of(context).textTheme));
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
@@ -22,13 +25,16 @@ class MyTheme {
       brightness: Brightness.dark,
       cardColor: Colors.black,
       canvasColor: darkCreamColor,
+      // ignore: deprecated_member_use
       buttonColor: lightBluishColor,
+      // ignore: deprecated_member_use
       accentColor: Colors.white,
       secondaryHeaderColor: Colors.white70,
       appBarTheme: AppBarTheme(
           color: Colors.black,
           elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.white),
+          // ignore: deprecated_member_use
           textTheme: Theme.of(context).textTheme.copyWith(
               headline6:
                   context.textTheme.headline6!.copyWith(color: Colors.white))));

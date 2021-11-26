@@ -56,6 +56,7 @@ class _CartTotal extends StatelessWidget {
                   },
                   style: ButtonStyle(
                       backgroundColor:
+                          // ignore: deprecated_member_use
                           MaterialStateProperty.all(context.theme.buttonColor)),
                   child: 'Buy'.text.make())
               .w32(context)
