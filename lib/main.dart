@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override 
   Widget build(BuildContext context) {
     return MaterialApp(
+      title:  "catalogApp",
       // home: Homepage(), //je page apyu hase aa page load thase route na vapro to
       themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
